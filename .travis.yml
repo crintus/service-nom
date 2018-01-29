@@ -6,7 +6,7 @@ python:
 before_script:
 - docker-compose build
 script:
-- docker-compose up -d postgres
+# - docker-compose up -d postgres
 - docker-compose run --rm web bash -c "./manage.py test"
 after_success:
 - docker login --username=_ --password="$HEROKU_AUTH_TOKEN" registry.heroku.com
