@@ -10,9 +10,8 @@ postgres_ready () {
 python << END
 import sys
 import psycopg2
-print($POSTGRES_USER, $POSTGRES_USER, $POSTGRES_PASSWORD)
 try:
-    conn = psycopg2.connect(dbname="postgres", user="$POSTGRES_USER", password="$POSTGRES_PASSWORD", host="db")
+    conn = psycopg2.connect(dbname="postgres", user=postgres, password="", host="db")
 except psycopg2.OperationalError:
     sys.exit(-1)
 sys.exit(0)
