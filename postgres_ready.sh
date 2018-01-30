@@ -1,14 +1,10 @@
 #!/usr/bin/env bash
 
 set -o errexit
-# set -o pipefail
 
+cmd="$@"
 
-# cmd="$@"
-
-export POSTGRES_USER=postgres
-export DATABASE_URL=postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres:5431/postgres
-
+export DATABASE_URL=postgres://postgres:$POSTGRES_PASSWORD@postgres:5431/postgres
 
 function postgres_ready(){
 python << END
@@ -28,3 +24,4 @@ until postgres_ready; do
 done
 
 >&2 echo "Postgres is ready!"
+exec $cmd
