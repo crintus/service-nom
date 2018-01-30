@@ -5,9 +5,8 @@ python:
 - '3.6'
 before_script:
 - docker-compose build
-- docker-compose run --rm web bash -c "python postgres_ready.py"
 script:
-- docker-compose run --rm web bash -c "./manage.py test"
+- docker-compose run --rm web bash -c "python postgres_ready.py && ./manage.py test"
 after_success:
 - docker login --username=_ --password="$HEROKU_AUTH_TOKEN" registry.heroku.com
 - docker tag web registry.heroku.com/service-nom/web
