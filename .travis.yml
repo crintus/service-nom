@@ -5,6 +5,7 @@ python:
 - '3.6'
 before_script:
 - docker-compose build
+- docker-compose up -d postgres web
 script:
 # - docker-compose up -d postgres
 - docker-compose run --rm web bash -c "./manage.py test"
