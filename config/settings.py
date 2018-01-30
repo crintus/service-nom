@@ -31,7 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.flatpages',
     'django.contrib.sites',
 
-    'whitenoise.runserver_nostatic',
+    # 'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
 
     'corsheaders',
