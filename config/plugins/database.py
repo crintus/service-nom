@@ -12,17 +12,6 @@ DATABASES = {
     }
 }
 
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'postgres',
-#         'USER': 'postgres',
-#         'PASSWORD': os.environ.get('POSTGRES_PASSWORD', ''),
-#         'HOST': os.environ.get('POSTGRES_HOST', 'postgres'),
-#         'PORT': os.environ.get('POSTGRES_PORT', 5432),
-#         'OPTIONS': {
-#             'connect_timeout': 25,
-#         }
-
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
-
-# {'NAME': 'postgres', 'USER': 'postgres', 'PASSWORD': '', 'HOST': 'postgres', 'PORT': 5432, 'CONN_MAX_AGE': 500, 'ENGINE': 'django.db.backends.postgresql_psycopg2'}
+DATABASES['default'].update(
+    dj_database_url.config(conn_max_age=500)
+)

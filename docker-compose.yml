@@ -7,10 +7,10 @@ services:
     #   - '5432:5432'
     volumes:
       - .:/postgres
-    # networks:
-    #       main:
-    #         aliases:
-    #           - postgres
+    networks:
+          main:
+            aliases:
+              - postgres
   web:
     restart: always
     build: ./
@@ -22,8 +22,8 @@ services:
       - "8080:8080"
     depends_on:
       - postgres
-    # networks:
-    #   - main
+    networks:
+      - main
 
-# networks:
-#   main:
+networks:
+  main:
