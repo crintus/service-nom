@@ -4,7 +4,7 @@ from time import sleep
 import psycopg2
 
 config = {
-    'host': os.environ.get('POSTGRES_HOST', 'db'),
+    'host': os.environ.get('POSTGRES_HOST', 'postgres'),
     'user': os.getenv("POSTGRES_USER", "postgres"),
     'password': os.environ.get('POSTGRES_PASSWORD', ''),
     "dbname": os.getenv("POSTGRES_DB", "postgres"),
