@@ -16,7 +16,8 @@ def pg_isready(**kwargs):
         psycopg2.connect(**kwargs)
         print("Postgres is ready!")
         return True
-    except psycopg2.OperationalError:
+    except psycopg2.OperationalError as exc:
+        print(exc)
         return False
 
     print("Could not connect to Postgres.")
