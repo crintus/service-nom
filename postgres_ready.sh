@@ -6,7 +6,7 @@ cmd="$@"
 
 export DATABASE_URL=postgres://postgres:$POSTGRES_PASSWORD@postgres:5431/postgres
 
-function postgres_ready(){
+function postgres_ready{
 python << END
 import sys
 import psycopg2
