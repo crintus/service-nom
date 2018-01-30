@@ -20,9 +20,6 @@ def pg_isready(**kwargs):
         print(exc)
         return False
 
-    print("Could not connect to Postgres.")
-    sys.exit(0)
-
 
 while not pg_isready(**config):
     print('Postgres not ready. Waiting...')
