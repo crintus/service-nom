@@ -8,6 +8,6 @@ RUN pip install -r requirements.txt
 ADD . /app/
 
 # Migrates the database, uploads staticfiles, and runs the production server
-CMD ./manage.py migrate --settings=config.settings && \
-    ./manage.py collectstatic --noinput --settings=config.settings && \
+CMD ./manage.py migrate && \
+    ./manage.py collectstatic --noinput && \
     gunicorn --bind 0.0.0.0:$PORT --access-logfile - config.wsgi:application
