@@ -12,5 +12,7 @@ DATABASES = {
     }
 }
 
-if os.environ.get('DATABSE_URL'):
+print(os.environ)
+
+if os.environ.get('DATABASE_URL'):
     DATABASES['default'] = dj_database_url.config(conn_max_age=500)
